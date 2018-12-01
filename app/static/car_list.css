@@ -3,10 +3,6 @@
   font-family: sans-serif;
 }
 
-.col {
-  margin-top: 6px;
-}
-
 .search {
  margin-top: 20px;
  background-color: #DDE8F0;
@@ -15,10 +11,8 @@
 }
 
 .col {
+  margin-top: 6px;
   margin-right: 10px;
-}
-.car_search {
-  margin-left: 40px;
 }
 
 .row {
