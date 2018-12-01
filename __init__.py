@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, redirect
 
 app = Flask(__name__)
 
@@ -6,7 +6,7 @@ app = Flask(__name__)
 def page_not_found(e):
     return redirect('/')
 
-@app.route('/index', methods=['GET'])
+@app.route('/', methods=['GET'])
 def index():
     return render_template('index/index.html')
 
