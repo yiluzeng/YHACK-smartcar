@@ -27,7 +27,7 @@
     {% block nav %}
       <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
-          <a class="navbar-brand" href="#">Grab To Go</a>
+          <a class="navbar-brand" href="{{ url_for('index') }}">Grab To Go</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -35,13 +35,13 @@
             <ul class="navbar-nav mr-auto">
 
               <li class="nav-item">
-                <a class="nav-link" href="#">Share Your Car</a>
+                <a class="nav-link" href="{{ url_for('car_form') }}">Share Your Car</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Rent a Car</a>
+                <a class="nav-link" href="{{ url_for('car_list') }}">Rent a Car</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Control Panel</a>
+                <a class="nav-link" href="{{ url_for('control_panel') }}">Control Panel</a>
               </li>
             </ul>
             <span class="navbar-text">
@@ -57,7 +57,8 @@
     </main>
 
     {% block footer %}
-      <footer class="container mt-5">
+      <hr class="mt-5" />
+      <footer class="container mt-1">
         <p class="row justify-content-center">&copy; 2018 Grab To Go </p>
       </footer>
     {% endblock %}
