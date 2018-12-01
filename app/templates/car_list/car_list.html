@@ -2,15 +2,133 @@
 
 {% block title %}Car List{% endblock %}
 
+{% block assets %}
+<link rel="stylesheet" href="{{ url_for('static', filename = 'car_list.css')}}">
+{% endblock %}
+
 {% block content %}
 
-<!DOCTYPE html>
-<html>
-<head>
-  <link rel="car_list" href="frontend/car_list.css">
-</head>
-<div class="search">
-  <i class="fas fa-search"></i>
-  <p> something </p>
+<div class="menu row">
+  <button type="button" class="btn btn-primary col">Location</button>
+  <button type="button" class="btn btn-secondary col">Price</button>
+  <button type="button" class="btn btn-primary col">Time</button>
+  <button type="button" class="btn btn-secondary col">Distance</button>
+  <button type="button" class="btn btn-primary col">Vehicle Types</button>
+  <button type="button" class="btn btn-secondary col">Vehicle Brands</button>
 </div>
-</html>
+
+<div class="search row">
+  <i class="fas fa-search"></i>
+  <form class="car_search"><input type="text" name="car_search" size="170"></form>
+</div>
+
+<div class="container">
+  <div class="row allign-items-center">
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="static/images/tesla.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Tesla Model S, 2017</h5>
+            <p class="card-text">Providence, RI</p>
+            <p class="card-text">$ 99.99 / day</p>
+            <a href="#" class="btn btn-primary">Rent</a>
+          </div>
+        </div>
+    </div>
+    <div class="col" >
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="static/images/tesla.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Tesla Model S, 2017</h5>
+            <p class="card-text">Providence, RI</p>
+            <p class="card-text">$ 99.99 / day</p>
+            <a href="#" class="btn btn-primary">Rent</a>
+          </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="static/images/tesla.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Tesla Model S, 2017</h5>
+            <p class="card-text">Providence, RI</p>
+            <p class="card-text">$ 99.99 / day</p>
+            <a href="#" class="btn btn-primary">Rent</a>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="static/images/tesla.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Tesla Model S, 2017</h5>
+            <p class="card-text">Providence, RI</p>
+            <p class="card-text">$ 99.99 / day</p>
+            <a href="#" class="btn btn-primary">Rent</a>
+          </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="static/images/tesla.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Tesla Model S, 2017</h5>
+            <p class="card-text">Providence, RI</p>
+            <p class="card-text">$ 99.99 / day</p>
+            <a href="#" class="btn btn-primary">Rent</a>
+          </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="static/images/tesla.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Tesla Model S, 2017</h5>
+            <p class="card-text">Providence, RI</p>
+            <p class="card-text">$ 99.99 / day</p>
+            <a href="#" class="btn btn-primary">Rent</a>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="static/images/tesla.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Tesla Model S, 2017</h5>
+            <p class="card-text">Providence, RI</p>
+            <p class="card-text">$ 99.99 / day</p>
+            <a href="#" class="btn btn-primary">Rent</a>
+          </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="static/images/tesla.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Tesla Model S, 2017</h5>
+            <p class="card-text">Providence, RI</p>
+            <p class="card-text">$ 99.99 / day</p>
+            <a href="#" class="btn btn-primary">Rent</a>
+          </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="static/images/tesla.png" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Tesla Model S, 2017</h5>
+            <p class="card-text">Providence, RI</p>
+            <p class="card-text">$ 99.99 / day</p>
+            <a href="#" class="btn btn-primary">Rent</a>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
