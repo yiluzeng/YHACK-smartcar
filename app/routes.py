@@ -25,9 +25,13 @@ def car_list():
 def car_form():
     return render_template('car_form/car_form.html')
 
-@app.route('/control_panel', methods=['GET'])
+@app.route('/control_panel/client', methods=['GET'])
 def control_panel_client():
     return render_template('control_panel/client-control.html')
+
+@app.route('/control_panel/owner', methods=['GET'])
+def control_panel_owner():
+    return render_template('control_panel/owner-control.html')
 
 @app.route('/car_status', methods=['GET'])
 def car_status():
