@@ -10,6 +10,10 @@ def home():
 def car_info():
     return render_template('car_info/car_info.html')
 
+@app.route('/car_list', methods=['GET'])
+def car_info():
+    return render_template('car_list/car_list.html')
+
 @app.route('/car_form', methods=['GET'])
 def car_form():
     return render_template('car_form/car_form.html')
