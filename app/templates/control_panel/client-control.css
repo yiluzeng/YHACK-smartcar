@@ -1,0 +1,312 @@
+/* Background */
+
+position: absolute;
+width: 693px;
+height: 511px;
+
+background: #F2FFFD;
+
+
+/* Menu Bar */
+
+position: absolute;
+width: 693px;
+height: 35px;
+
+background: #005F89;
+
+
+/* Map */
+
+position: absolute;
+width: 173px;
+height: 419px;
+
+background: #E6ECEB;
+
+
+/* Lock Unlock */
+
+position: absolute;
+width: 306px;
+height: 42px;
+
+background: #0093B7;
+border: 1px solid #005F89;
+box-sizing: border-box;
+box-shadow: 2px 4px 5px #D5EDF5;
+border-radius: 4px;
+
+
+/* Divider */
+
+position: absolute;
+width: 195px;
+height: 0px;
+
+border: 1px solid #E6ECEB;
+transform: rotate(90deg);
+
+
+/* COntact Owner */
+
+position: absolute;
+width: 306px;
+height: 34px;
+
+background: #005F89;
+border-radius: 4px;
+
+
+/* Rectangle */
+
+position: absolute;
+width: 214px;
+height: 195px;
+
+background: #E6ECEB;
+box-shadow: 2px 3px 4px rgba(0, 95, 137, 0.07);
+
+
+/* Rectangle */
+
+position: absolute;
+width: 214px;
+height: 195px;
+
+background: #E6ECEB;
+box-shadow: 2px 3px 4px rgba(0, 95, 137, 0.07);
+
+
+/* image */
+
+position: absolute;
+width: 154px;
+height: 387px;
+
+background: url(image.png);
+border: 5px solid rgba(160, 197, 207, 0.5);
+box-sizing: border-box;
+
+
+/* Safe Zone */
+
+position: absolute;
+width: 140px;
+height: 136px;
+
+background: rgba(99, 205, 215, 0.5);
+
+
+/* TESLA MODEL S (#12345) */
+
+position: absolute;
+width: 525px;
+height: 39px;
+
+font-family: Saira;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+font-size: 30px;
+letter-spacing: 0.05em;
+
+color: #005F89;
+
+
+
+/* CONTACT OWNER */
+
+position: absolute;
+width: 298px;
+height: 19px;
+
+font-family: Saira;
+font-style: normal;
+font-weight: normal;
+line-height: 33px;
+font-size: 20.2147px;
+letter-spacing: 0.05em;
+
+color: #E6ECEB;
+
+
+
+/* Lock Car */
+
+position: absolute;
+width: 274px;
+height: 42px;
+
+font-family: Saira;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+font-size: 24px;
+letter-spacing: 0.05em;
+
+color: #000000;
+
+
+
+/* image 2 */
+
+position: absolute;
+width: 27px;
+height: 27px;
+
+background: url(image.png);
+
+
+/* Rectangle 2 */
+
+position: absolute;
+width: 214px;
+height: 58px;
+
+
+
+/* Rectangle 2.2 */
+
+position: absolute;
+width: 214px;
+height: 58px;
+
+
+
+/* Rectangle 2.1 */
+
+position: absolute;
+width: 214px;
+height: 58px;
+
+background: rgba(99, 205, 215, 0.5);
+
+
+/* Rectangle 2.3 */
+
+position: absolute;
+width: 214px;
+height: 58px;
+
+
+
+/* Rectangle 2.4 */
+
+position: absolute;
+width: 214px;
+height: 58px;
+
+
+
+/* Rectangle 2.5 */
+
+position: absolute;
+width: 214px;
+height: 58px;
+
+
+
+/* Safe Zone */
+
+position: absolute;
+width: 166px;
+height: 27px;
+
+font-family: Saira;
+font-style: normal;
+font-weight: 200;
+line-height: normal;
+font-size: 24px;
+
+color: #000000;
+
+
+
+/* Options */
+
+position: absolute;
+width: 166px;
+height: 27px;
+
+font-family: Saira;
+font-style: normal;
+font-weight: 200;
+line-height: normal;
+font-size: 24px;
+
+color: #000000;
+
+
+
+/* Odometer */
+
+position: absolute;
+width: 166px;
+height: 27px;
+
+font-family: Saira;
+font-style: normal;
+font-weight: 200;
+line-height: normal;
+font-size: 24px;
+
+color: #000000;
+
+
+
+/* Pricing */
+
+position: absolute;
+width: 166px;
+height: 27px;
+
+font-family: Saira;
+font-style: normal;
+font-weight: 200;
+line-height: normal;
+font-size: 24px;
+
+color: #000000;
+
+
+
+/* Rent Duration */
+
+position: absolute;
+width: 166px;
+height: 27px;
+
+font-family: Saira;
+font-style: normal;
+font-weight: 200;
+line-height: normal;
+font-size: 24px;
+
+color: #000000;
+
+
+
+/* Location */
+
+position: absolute;
+width: 166px;
+height: 27px;
+
+font-family: Saira;
+font-style: normal;
+font-weight: 200;
+line-height: normal;
+font-size: 24px;
+
+color: #FFFFFF;
+
+
+
+/* image 3 */
+
+position: absolute;
+width: 9px;
+height: 16px;
+
+background: url(image.png);
