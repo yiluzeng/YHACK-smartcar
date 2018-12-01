@@ -8,6 +8,13 @@
 
 {% block content %}
 
+<div class="search row input-group mb-3">
+  <input type="text" class="form-control" placeholder="Location...">
+  <div class="input-group-append">
+    <button class="btn btn-info" type="button" id="search-button"><i class="fas fa-search"></i></button>
+  </div>
+</div>
+
 <div class="menu row">
   <button type="button" class="btn btn-primary col">Location</button>
   <button type="button" class="btn btn-secondary col">Price</button>
@@ -15,11 +22,6 @@
   <button type="button" class="btn btn-secondary col">Distance</button>
   <button type="button" class="btn btn-primary col">Vehicle Types</button>
   <button type="button" class="btn btn-secondary col">Vehicle Brands</button>
-</div>
-
-<div class="search row">
-  <i class="fas fa-search"></i>
-  <form class="car_search"><input type="text" name="car_search" size="170"></form>
 </div>
 
 <div class="container">

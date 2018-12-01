@@ -1,330 +1,214 @@
-/* Rectangle */
-
-position: absolute;
-width: 693px;
-height: 511px;
-
-background: #FFFFFF;
-
-
-/* Background */
-
-position: absolute;
-width: 693px;
-height: 511px;
-
+/* body */
+body {
 background: #F2FFFD;
+font-family: Arial, sans-serif;
+}
 
-
-/* Menu Bar */
-
-position: absolute;
-width: 693px;
-height: 35px;
-
+/* menu */
+#menu {
+position: fixed;
+width: 100%;
+margin-top: -22px;
+margin-left: -8px;
+height: 55px;
 background: #005F89;
-
+}
 
 /* Map */
 
-position: absolute;
+#map {
+position: fixed;
+top: 50px;
+left: 83%;
 width: 173px;
-height: 419px;
-
+height: 90%;
 background: #E6ECEB;
+}
 
 
 /* Lock Unlock */
 
-position: absolute;
+#lock {
+position: relative;
 width: 306px;
 height: 42px;
-
+top: 200px;
+left: 345px;
 background: #0093B7;
 border: 1px solid #005F89;
 box-sizing: border-box;
 box-shadow: 2px 4px 5px #D5EDF5;
 border-radius: 4px;
+}
 
 
 /* Divider */
 
+#divider {
 position: absolute;
-width: 195px;
+width: 345px;
 height: 0px;
-
+top: 450px;
+left: 325px;
 border: 1px solid #E6ECEB;
 transform: rotate(90deg);
+}
 
+/* Contact Owner */
 
-/* COntact Owner */
-
+#contact {
 position: absolute;
 width: 306px;
 height: 34px;
-
+top: 650px;
+left: 350px;
 background: #005F89;
 border-radius: 4px;
+}
 
-
-/* Rectangle */
-
+#rectang1 {
 position: absolute;
-width: 214px;
-height: 195px;
-
+width: 400px;
+height: 310px;
+top: 270px;
+left: 80px;
 background: #E6ECEB;
 box-shadow: 2px 3px 4px rgba(0, 95, 137, 0.07);
+}
 
-
-/* Rectangle */
-
+#rectang2 {
 position: absolute;
-width: 214px;
-height: 195px;
-
+width: 400px;
+height: 310px;
+top: 270px;
+left: 515px;
 background: #E6ECEB;
 box-shadow: 2px 3px 4px rgba(0, 95, 137, 0.07);
+}
 
-
-/* image */
-
-position: absolute;
+#zonemap {
+position: fixed;
 width: 154px;
-height: 387px;
-
-background: url(image.png);
+height: 85%;
+top: 60px;
+left: 83.9%;
+background: #000;
 border: 5px solid rgba(160, 197, 207, 0.5);
 box-sizing: border-box;
+object-fit: cover;
+overflow: hidden;
+}
 
-
-/* Safe Zone */
-
+#modelheader {
 position: absolute;
-width: 140px;
-height: 136px;
-
-background: rgba(99, 205, 215, 0.5);
-
-
-/* TESLA MODEL S (#12345) */
-
-position: absolute;
-width: 525px;
+width: 1025px;
 height: 39px;
-
-font-family: Saira;
+top: 100px;
+left: 250px;
+font-family: Saira, Arial;
 font-style: normal;
 font-weight: 600;
 line-height: normal;
-font-size: 30px;
+font-size: 40px;
 letter-spacing: 0.05em;
-
 color: #005F89;
+}
 
 
-
-/* CONTACT CLIENT */
-
+#ownercontact {
 position: absolute;
 width: 298px;
 height: 19px;
-
+top: 653px;
+left: 410px;
 font-family: Saira;
 font-style: normal;
 font-weight: normal;
 line-height: 33px;
 font-size: 20.2147px;
 letter-spacing: 0.05em;
-
 color: #E6ECEB;
+}
 
-
-
-/* Stop Car */
-
+#lockcar {
 position: absolute;
 width: 274px;
 height: 42px;
-
+top: 210px;
+left: 435px;
 font-family: Saira;
 font-style: normal;
 font-weight: 500;
 line-height: normal;
 font-size: 24px;
 letter-spacing: 0.05em;
-
 color: #000000;
+}
 
-
-
-/* image 2 */
-
+#lockpic img {
 position: absolute;
+top: 214px;
+left: 560px;
 width: 27px;
 height: 27px;
+object-fit: cover;
+}
 
-background: url(image.png);
-
-
-/* Rectangle 2 */
-
+#button1 {
 position: absolute;
-width: 214px;
-height: 58px;
+top: 35px;
+width: 400px;
+height: 98px
+font-family: Saira;
+font-style: normal;
+font-weight: 200;
+line-height: normal;
+font-size: 24px;
+color: #000000;
+-webkit-transition: background 2s;
+}
 
-
-
-/* Rectangle 2.2 */
-
+#button2 {
 position: absolute;
-width: 214px;
-height: 58px;
+top: 125px;
 
+width: 400px;
+height: 58px
+font-family: Saira;
+font-style: normal;
+font-weight: 200;
+line-height: normal;
+font-size: 24px;
+color: #000000;
+-webkit-transition: background 2s;
+}
 
-
-/* Rectangle 2.1 */
-
+#button3 {
 position: absolute;
-width: 214px;
-height: 58px;
+top: 225px;
 
+width: 400px;
+height: 58px
+font-family: Saira;
+font-style: normal;
+font-weight: 200;
+line-height: normal;
+font-size: 24px;
+color: #000000;
+-webkit-transition: background 2s;
+}
+
+#button1:hover {
 background: rgba(99, 205, 215, 0.5);
+-webkit-transition: background 2s;
+}
 
+#button2:hover {
+background: rgba(99, 205, 215, 0.5);
+-webkit-transition: background 2s;
+}
 
-/* Rectangle 2.3 */
-
-position: absolute;
-width: 214px;
-height: 58px;
-
-
-
-/* Rectangle 2.4 */
-
-position: absolute;
-width: 214px;
-height: 58px;
-
-
-
-/* Rectangle 2.5 */
-
-position: absolute;
-width: 214px;
-height: 58px;
-
-
-
-/* Safe Zone */
-
-position: absolute;
-width: 166px;
-height: 27px;
-
-font-family: Saira;
-font-style: normal;
-font-weight: 200;
-line-height: normal;
-font-size: 24px;
-
-color: #000000;
-
-
-
-/* Contract */
-
-position: absolute;
-width: 166px;
-height: 27px;
-
-font-family: Saira;
-font-style: normal;
-font-weight: 200;
-line-height: normal;
-font-size: 24px;
-
-color: #000000;
-
-
-
-/* Odometer */
-
-position: absolute;
-width: 166px;
-height: 27px;
-
-font-family: Saira;
-font-style: normal;
-font-weight: 200;
-line-height: normal;
-font-size: 24px;
-
-color: #000000;
-
-
-
-/* Income */
-
-position: absolute;
-width: 166px;
-height: 27px;
-
-font-family: Saira;
-font-style: normal;
-font-weight: 200;
-line-height: normal;
-font-size: 24px;
-
-color: #000000;
-
-
-
-/* Edit Range */
-
-position: absolute;
-width: 166px;
-height: 27px;
-
-font-family: Saira;
-font-style: normal;
-font-weight: 200;
-line-height: normal;
-font-size: 24px;
-
-color: #000000;
-
-
-
-/* Location */
-
-position: absolute;
-width: 166px;
-height: 27px;
-
-font-family: Saira;
-font-style: normal;
-font-weight: 200;
-line-height: normal;
-font-size: 24px;
-
-color: #FFFFFF;
-
-
-
-/* image 3 */
-
-position: absolute;
-width: 9px;
-height: 16px;
-
-background: url(image.png);
-
-
-/* Vector */
-
-position: absolute;
-width: 24.4px;
-height: 46.6px;
-
-border: 5px solid #005F89;
+#button3:hover {
+background: rgba(99, 205, 215, 0.5);
+-webkit-transition: background 2s;
+}
