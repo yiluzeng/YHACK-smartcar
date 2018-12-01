@@ -1,3 +1,7 @@
+from flask import Flask
+
+app = Flask(__name__)
+
 @app.errorhandler(404)
 def page_not_found(e):
     return redirect('/')
@@ -11,7 +15,7 @@ def car_info():
     return render_template('car_info/car_info.html')
 
 @app.route('/car_list', methods=['GET'])
-def car_info():
+def car_list():
     return render_template('car_list/car_list.html')
 
 @app.route('/car_form', methods=['GET'])
@@ -23,5 +27,5 @@ def control_panel():
     return render_template('control_panel/control_panel.html')
 
 @app.route('/car_status', methods=['GET'])
-def control_panel():
+def car_status():
     return render_template('car_status/car_status.html')
