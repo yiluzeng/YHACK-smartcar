@@ -10,7 +10,8 @@ def page_not_found(e):
 @app.route('/', methods=['GET'])
 @app.route('/index', methods=['GET'])
 def index():
-    return render_template('index/index.html')
+    return redirect('/landing')
+#   return render_template('index/index.html')
 
 @app.route('/car_info', methods=['GET'])
 def car_info():
@@ -25,12 +26,16 @@ def car_form():
     return render_template('car_form/car_form.html')
 
 @app.route('/control_panel', methods=['GET'])
-def control_panel():
-    return render_template('control_panel/control_panel.html')
+def control_panel_client():
+    return render_template('control_panel/client-control.html')
 
 @app.route('/car_status', methods=['GET'])
 def car_status():
     return render_template('car_status/car_status.html')
+
+@app.route('/landing', methods=['GET'])
+def landing():
+    return render_template('landing/landing.html')
 
 CLIENT_ID = 'cdf41817-f479-42c9-8f48-6fa2c0ff058d'
 CLIENT_SECRET = 'f8ab46a3-4ec4-4172-a29a-594240fe4945'
