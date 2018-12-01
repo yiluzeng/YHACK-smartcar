@@ -1,7 +1,36 @@
 import smartcar
 import requests
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, redirect, render_template
 from app import app
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return redirect('/')
+
+@app.route('/', methods=['GET'])
+@app.route('/index', methods=['GET'])
+def index():
+    return render_template('index/index.html')
+
+@app.route('/car_info', methods=['GET'])
+def car_info():
+    return render_template('car_info/car_info.html')
+
+@app.route('/car_list', methods=['GET'])
+def car_list():
+    return render_template('car_list/car_list.html')
+
+@app.route('/car_form', methods=['GET'])
+def car_form():
+    return render_template('car_form/car_form.html')
+
+@app.route('/control_panel', methods=['GET'])
+def control_panel():
+    return render_template('control_panel/control_panel.html')
+
+@app.route('/car_status', methods=['GET'])
+def car_status():
+    return render_template('car_status/car_status.html')
 
 CLIENT_ID = 'cdf41817-f479-42c9-8f48-6fa2c0ff058d'
 CLIENT_SECRET = 'f8ab46a3-4ec4-4172-a29a-594240fe4945'
