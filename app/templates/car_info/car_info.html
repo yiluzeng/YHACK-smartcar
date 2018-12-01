@@ -1,7 +1,56 @@
 {% extends 'base.html' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Car Infomation{% endblock %}
+
+{% block assets %}
+<link rel="stylesheet" href="{{ url_for('static', filename = 'car_info.css')}}">
+{% endblock %}
 
 {% block content %}
-  
+  <h1 class="display-4">Tesla Model S 2017</h1>
+  <img class="rounded img-fluid row mb-5" style="min-width:100%" src="static/images/tesla.png" />
+  <div class="row mt-5 cardetail">
+    <div class="col">
+      <i class="fas fa-map-marker-alt"></i> Providence, RI
+    </div>
+    <div class="col">
+      <b>Type:</b> Electric car
+    </div>
+    <div class="col">
+      <b>Features:</b> GPS, Remote lock/unlock
+    </div>
+  </div>
+  <div class="row mt-3 cardetail">
+    <div class="col">
+      <i class="fas fa-dollar-sign"></i> 99.99 $ / hr
+    </div>
+    <div class="col">
+      <b>Seats:</b> 5
+    </div>
+    <div class="col">
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star-half"></i>
+    </div>
+  </div>
+  <p class="row cardesc">
+    <b>Description:</b>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br/> Maecenas finibus metus diam,
+    at consectetur nisi tincidunt et. Curabitur pharetra, metus sit amet viverra varius,
+    magna odio ultrices neque, et finibus nisi metus vitae ex. Morbi mattis sapien sit
+    amet ligula posuere, nec consequat tortor mattis. Integer tincidunt pulvinar augue
+    sit amet scelerisque. Nunc maximus laoreet metus, consequat mollis diam. Nunc pretium
+    velit non nisl convallis semper. Aenean blandit suscipit ultrices. Fusce id ex ante.<br />
+    Nullam quis aliquet orci, vel faucibus est. Donec feugiat purus quis velit tempor blandit.
+    Sed sed eros et risus<br /> auctor viverra vel ac lacus. Pellentesque aliquet est quam, id
+    vulputate erat faucibus pharetra. Quisque tincidunt nunc convallis lectus congue, sed
+    malesuada metus bibendum.<br /> In nibh quam, volutpat a bibendum vitae, tincidunt quis odio.
+    Pellentesque ante velit, ullamcorper in fringilla sed, porttitor eu ipsum. Nullam
+    interdum massa dui. Maecenas ullamcorper arcu sed massa rhoncus, sit amet congue ex eleifend
+  </p>
+
+  <button type="button" class="btn btn-primary rent-button mt-3">Rent the Car</button>
+
 {% endblock %}
