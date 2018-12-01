@@ -22,7 +22,7 @@ $ export FLASK_APP=run.py
 
 It also helps to go into debugging mode for development, so the server automatically restarts when a file is changed
 ```
-$ export DEBUG=1
+$ export FLASK_DEBUG=1
 ```
 
 To run the server:
