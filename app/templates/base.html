@@ -6,6 +6,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+      <title>Grab To Go - {% block title %}{% endblock %}</title>
 
       <!-- JS & CSS Libary -->
       <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
@@ -17,7 +18,8 @@
 
       <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-      <title>Grab To Go - {% block title %}{% endblock %}</title>
+      {% block assets %} {% endblock %}
+
     {% endblock %}
 </head>
 
@@ -55,7 +57,7 @@
     </main>
 
     {% block footer %}
-      <footer class="container">
+      <footer class="container mt-5">
         <p class="row justify-content-center">&copy; 2018 Grab To Go </p>
       </footer>
     {% endblock %}

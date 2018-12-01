@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Car Info{% endblock %}
+
+{% block content %}
+  <h1 class="row">Hello World!</h1>
+  <h2 class="row">Welcome to the demo of the most promising application in this hackatron</h2>
+  <h3 class="row">Page for:</h3>
+  <div class="row mt-2">
+    <div>
+      <a href="{{ url_for('car_list') }}">
+        <button type="button" class="btn btn-primary">Customer</button>
+      </a>
+    </div>
+    <div class="ml-3">
+      <a href="{{ url_for('car_form') }}">
+        <button type="button" class="btn btn-primary">Car Owner</button>
+      </a>
+    </div>
+  </div>
+  <div class="row mt-2">
+
+  </div>
+{% endblock %}
