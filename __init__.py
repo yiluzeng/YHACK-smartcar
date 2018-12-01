@@ -2,9 +2,9 @@
 def page_not_found(e):
     return redirect('/')
 
-@app.route('/home', methods=['GET'])
-def home():
-    return render_template('home/home.html')
+@app.route('/index', methods=['GET'])
+def index():
+    return render_template('index/index.html')
 
 @app.route('/car_info', methods=['GET'])
 def car_info():
