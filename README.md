@@ -10,6 +10,11 @@ Then activate it
 $ source venv/bin/activate
 ```
 
+Install requirements with
+```
+$ pip install -r requirements.txt
+```
+
 Set environment variables
 ```
 $ export FLASK_APP=run.py
