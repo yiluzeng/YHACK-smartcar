@@ -15,5 +15,9 @@ def car_form():
     return render_template('car_form/car_form.html')
 
 @app.route('/control_panel', methods=['GET'])
-def car_panel():
-    return render_template('car_panel/car_panel.html')
+def control_panel():
+    return render_template('control_panel/control_panel.html')
+
+@app.route('/car_status', methods=['GET'])
+def control_panel():
+    return render_template('car_status/car_status.html')
