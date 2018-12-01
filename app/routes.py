@@ -46,6 +46,13 @@ def get_vehicle(access_token):
     return vehicle
 
 
+@app.route('/get_info')
+def get_info():
+    vehicle = get_vehicle(access_token)
+    info = vehicle.info()
+
+    return jsonify(info)
+
 @app.route('/get_location')
 def get_location():
     vehicle = get_vehicle(access_token)
