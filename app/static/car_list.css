@@ -1,4 +1,14 @@
+.rent_title {
+  font-size: 40px;
+  font-family: sans-serif;
+}
+
+.col {
+  margin-top: 6px;
+}
+
 .search {
+ margin-top: 20px;
  background-color: #DDE8F0;
  padding: 10px;
  margin-bottom: 20px;
@@ -7,7 +17,6 @@
 .col {
   margin-right: 10px;
 }
-
 .car_search {
   margin-left: 40px;
 }
