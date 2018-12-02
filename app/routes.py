@@ -119,17 +119,16 @@ def callback():
     # Populate user info in database
     access_token = access['access_token']
     at_duration = access['expires_in']
-    refresh_token = access['refresh_token']
     userid = smartcar.get_user_id(access_token)
-    vehicles = smartcar.get_vehicle_ids(access_token)
+    vehicles = smartcar.get_vehicle_ids(access_token)['vehicles']
 
     access_token_expire = datetime.datetime.fromtimestamp(time.time() + at_duration)
 
-    usr_ref = db.collection(u'users').document(access_token)
+    usr_ref = db.collection(u'users').document(userid)
     usr_ref.set({
         u'access_token' : access_token,
         u'access_token_expire' : access_token_expire,
-        u'refresh_token' : refresh_token,
+        u'refresh_token' : access['refresh_token'],
         u'cars' : vehicles
     })
     
@@ -144,7 +143,7 @@ def callback():
             u'manufacturer' : car_info['make'],
             u'model' : car_info['model'],
             u'car_year' : car_info['year'],
-            u'car_vin' : car_obj.vin()['vin']
+            u'owner' : db.collection(u'users').document(userid)
         })
 
     # Respond with a success status to browser
