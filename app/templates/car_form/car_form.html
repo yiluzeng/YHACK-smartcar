@@ -75,32 +75,43 @@
   <form>
     <div class="form-group">
       <label for="formOwnerName">Name</label>
-      <input type="text" class="form-control" id="formOwnerName" placeholder="Jane Smith">
+      <input type="text" class="form-control" id="formOwnerName" placeholder="Jane Smith" value="Zachary Trefler">
     </div>
     <div class="form-group">
       <label for="formOwnerEmail">Email address</label>
-      <input type="email" class="form-control" id="formOwnerEmail" aria-describedby="emailHelp" placeholder="jane_smith@mail.com">
+      <input type="email" class="form-control" id="formOwnerEmail" aria-describedby="emailHelp" placeholder="jane_smith@mail.com" value="zachary@mail.com">
     </div>
     <div class="form-group">
       <label for="formOwnerPassword">Password</label>
-      <input type="password" class="form-control" id="formOwnerPassword" placeholder="Password">
+      <input type="password" class="form-control" id="formOwnerPassword" placeholder="Password" value="Zachary">
+    </div>
+    <div class="form-group">
+      <label for="formOwnerID">Driver License</label>
+      <input type="file" class="form-control-file" id="formOwnerID">
     </div>
     <hr />
     <h3>Your Car</h3>
     <div class="form-group">
       <label for="formOwnerLpnumber">License Plate Number</label>
-      <input type="text" class="form-control" id="formOwnerLpnumber" placeholder="1234AB">
+      <input type="text" class="form-control" id="formOwnerLpnumber" placeholder="1234AB" value="1234AB">
     </div>
     <div class="form-group">
-      <label for="formOwnerRate">Hourly Rate (per hour)</label>
-      <input type="number" class="form-control" id="formOwnerRate" placeholder="12.34">
+      <label for="formOwnerRate">Daily Rate (per day)</label>
+      <input type="number" class="form-control" id="formOwnerRate" placeholder="12.34" value="42.00">
     </div>
     <div class="form-group">
       <label for="formOwnerDetails">Car Details</label>
       <textarea class="form-control"
                 id="formOwnerDetails"
                 rows="5"
-                placeholder="Additional details about your car...">
+                placeholder="Additional details about your car..."
+                value="A Tesla isn't just an electric car, it's a piece of the future.
+                  These cars are so good that they're winning awards left, right, and center. And not just
+                  that, it has really amazing features such as autopilot, a 5.4 out of 5 safety rating,
+                  and a very sleek design. It's everything you'd want in a car.
+
+                  I'm offering rental of this amazing car model for a low rate because I love to hear all about
+                  peoples' first experiences with this amazing car. I can't wait for you to take it on a drive too.">
       </textarea>
     </div>
     <div class="form-group">
@@ -111,7 +122,7 @@
     <h3>Service Zone</h3>
     <div class="form-group">
       <label for="formOwnerRadius">Service Zone Radius (meters)</label>
-      <input type="number" class="form-control" id="formOwnerRadius">
+      <input type="number" class="form-control" id="formOwnerRadius" value="5000">
     </div>
     <div class="form-group">
       <label for="formOwnerLocation">Service Zone Origin</label>
@@ -119,7 +130,7 @@
       <div id="map"></div>
     </div>
     <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
       <label class="form-check-label" for="exampleCheck1">
         I agree to Grab to Go's Terms of Use and Privacy Policy
       </label>
