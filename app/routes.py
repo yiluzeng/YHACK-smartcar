@@ -33,7 +33,7 @@ def car_info(uid):
         data['features'] = car.get('car_make').get().get('features')
         data['image'] = car.get('car_make').get().get('image')
 
-        return render_template('car_info/car_info.html', car=data);
+    return render_template('car_info/car_info.html', car=data);
 
 @app.route('/car_list', methods=['GET'])
 def car_list():
