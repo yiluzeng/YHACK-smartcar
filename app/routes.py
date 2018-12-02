@@ -62,10 +62,6 @@ def control_panel_client2():
 def control_panel_owner():
     return render_template('control_panel/owner-control.html')
 
-@app.route('/car_status', methods=['GET'])
-def car_status():
-    return render_template('car_status/car_status.html')
-
 @app.route('/landing', methods=['GET'])
 def landing():
     return render_template('landing/landing.html')
