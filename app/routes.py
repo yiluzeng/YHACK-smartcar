@@ -1,5 +1,7 @@
 import smartcar
 import requests
+import time
+import datetime
 from flask import Flask, request, jsonify, redirect, render_template
 from app import app
 
@@ -81,6 +83,8 @@ def make_request():
     db.collection(u'requests').document(u'new').set(data)
     return redirect('/')
 
+
+# Smartcar API Callers
 CLIENT_ID = 'cdf41817-f479-42c9-8f48-6fa2c0ff058d'
 CLIENT_SECRET = 'f8ab46a3-4ec4-4172-a29a-594240fe4945'
 
@@ -96,7 +100,7 @@ access_token='0f3ecfb0-fd28-497c-ac13-22605ea94d08'
 
 @app.route('/car_auth', methods=['GET'])
 def car_auth():
-    auth_url = client.get_auth_url(force=True)+"&mode=test"
+    auth_url = client.get_auth_url(force=True)+"&approval_prompt=force"+"&mode=test"
     return '''
 <h1>Authenticate Car</h1>
 <a href=%s>
@@ -111,6 +115,39 @@ def callback():
 
     # Log the access token response
     print(access)
+
+    # Populate user info in database
+    access_token = access['access_token']
+    at_duration = access['expires_in']
+    refresh_token = access['refresh_token']
+    userid = smartcar.get_user_id(access_token)
+    vehicles = smartcar.get_vehicle_ids(access_token)
+
+    access_token_expire = datetime.datetime.fromtimestamp(time.time() + at_duration)
+
+    usr_ref = db.collection(u'users').document(access_token)
+    usr_ref.set({
+        u'access_token' : access_token,
+        u'access_token_expire' : access_token_expire,
+        u'refresh_token' : refresh_token,
+        u'cars' : vehicles
+    })
+    
+    # Generate vehicles
+    for car_id in vehicles:
+        # Vehicle info
+        car_obj = smartcar.Vehicle(car_id, access_token)
+        car_info = car_obj.info()
+
+        print(AAAAAAAAA)
+
+        car_ref = db.collection(u'cars').document(car_id)
+        car_ref.set({
+            u'manufacturer' : car_info['make'],
+            u'model' : car_info['model'],
+            u'car_year' : car_info['year'],
+            u'car_vin' : car_obj.vin()['vin']
+        })
 
     # Respond with a success status to browser
     return jsonify(access)
