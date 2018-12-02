@@ -1,6 +1,8 @@
 <div class="col car-card-col">
   <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="{{ post.image }}" alt="Card image cap">
+    <div class="car-img-box">
+      <img class="card-img-top car-img" src="{{ post.image }}" alt="Card image cap">
+    </div>
     <div class="card-body">
       <h5 class="card-title">{{ post.name }}</h5>
       <p class="card-text">{{ post.city }}</p>
@@ -9,4 +11,3 @@
     </div>
   </div>
 </div>
-
