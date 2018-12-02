@@ -1,26 +1,41 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Hi, {{ current_user.get_name() }}!</h1>
-<p>You're logged in!</p>
-<p><small><a href='{{ url_for("changepass") }}'>Change password</a></small></p>
-<h2>Your rentals:</h2>
-<ul>
-    {% for vehicle in current_user.get_rentals() %}
-    <li>{{ vehicle.get().to_dict()['car_plate_num'] }}</li>
-    {% endfor %}
-</ul>
-<a href='{{ url_for("car_list") }}'>
-  <button class="btn btn-primary">Rent a vehicle</button>
-</a>
-<h2>Your vehicles:</h2>
-<ul>
-    {% for vehicle in current_user.get_cars() %}
-    <li>{{ vehicle.get().to_dict()['car_plate_num'] }}</li>
-    {% endfor %}
-</ul>
-<a href='{{ url_for("car_form") }}'>
-  <button class="btn btn-primary">Register a vehicle</button>
-</a>
+<div class='jumbotron' style='height:30rem;'>
+  <h1 class='display-4'>Hi, {{ current_user.get_name() }}!</h1>
+  <p class='lead'>You're logged in!</p>
+  <hr class="my-4">
+  <p style="position: absolute; margin-top: -1rem;"><small><a href='{{ url_for("changepass") }}'>Change password</a></small></p>
+  <span style='float:left'>
+    <div class="card" style="width: 18rem; margin-top: 2rem; margin-left: 4.85rem;">
+      <div class='card-body'>
+        <h2 class='card-title'>Your rentals:</h2>
+        <ul class="list-group list-group-flush">
+            {% for vehicle in current_user.get_rentals() %}
+            <li class="list-group-item">{{ vehicle.get().to_dict()['car_plate_num'] }}</li>
+            {% endfor %}
+        </ul>
+        <a href='{{ url_for("car_list") }}'>
+          <button class="btn btn-primary">Rent a Vehicle</button>
+        </a>
+      </div>
+    </div>
+  </span>
+  <span style='float:right'>
+    <div class="card" style="width: 18rem; margin-top: 1.7rem; margin-right: 5.85rem;">
+      <div class='card-body'>
+        <h2 class='card-title'>Your vehicles:</h2>
+        <ul class="list-group list-group-flush">
+            {% for vehicle in current_user.get_cars() %}
+            <li class="list-group-item">{{ vehicle.get().to_dict()['car_plate_num'] }}</li>
+            {% endfor %}
+        </ul>
+        <a href='{{ url_for("car_form") }}'>
+          <button class="btn btn-primary" style="margin-top: 1rem;">Register a vehicle</button>
+        </a>
+      </div>
+    </div>
+  </span>
+</div>
 
 {% endblock %}
