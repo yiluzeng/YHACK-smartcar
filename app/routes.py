@@ -158,15 +158,16 @@ def callback():
 
     access_token_expire = datetime.datetime.fromtimestamp(time.time() + at_duration)
 
-    usr_ref = db.collection(u'users').document(u'zach')
+    usr_ref = db.collection(u'users').document(u'buck')
     usr_ref.set({
         u'access_token' : access_token,
         u'access_token_expire' : access_token_expire,
         u'refresh_token' : access['refresh_token'],
         u'cars' : vehicles
-    })
+    }, merge=True)
     
     # Generate vehicles
+    '''
     for car_id in vehicles:
         # Vehicle info
         car_obj = smartcar.Vehicle(car_id, access_token)
@@ -190,7 +191,7 @@ def callback():
             u'car_year' : car_info['year'],
             u'owner' : db.collection(u'users').document(userid)
         })
-
+'''
     # Respond with a success status to browser
     access_token = access['access_token']
     return redirect(url_for('message'))
