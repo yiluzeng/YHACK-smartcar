@@ -1,6 +1,6 @@
 import smartcar
 import requests
-from flask import Flask, request, jsonify, redirect, render_template
+from flask import Flask, request, jsonify, redirect, render_template, url_for
 from app import app
 
 import firebase_admin
@@ -98,7 +98,7 @@ def pending():
         hide = doc_ref.get('seller').get('seller')
     except:
         hide = '1'
-        return render_template('message/pending.html', request=hide)
+    return render_template('message/pending.html', request=hide)
 
 
 @app.route('/landing', methods=['GET'])
