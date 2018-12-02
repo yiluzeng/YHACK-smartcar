@@ -53,7 +53,9 @@
   </p>
 
   <div class="row">
-    <button type="button" class="btn btn-primary rent-button mt-3 ml-auto">Rent the Car</button>
+    <a href="{{ url_for('make_request') }}">
+      <button type="button" class="btn btn-primary rent-button mt-3 ml-auto">Rent the Car</button>
+    </a>
   </div>
 
 {% endblock %}

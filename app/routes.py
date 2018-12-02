@@ -70,6 +70,17 @@ def massage():
 def landing():
     return render_template('landing/landing.html')
 
+@app.route('/make_request')
+def make_request():
+    data = {
+        u'seller': u'zack',
+        u'user': u'stanley'
+    }
+
+    # Add a new doc in collection 'cities' with ID 'LA'
+    db.collection(u'requests').document(u'new').set(data)
+    return redirect('/')
+
 CLIENT_ID = 'cdf41817-f479-42c9-8f48-6fa2c0ff058d'
 CLIENT_SECRET = 'f8ab46a3-4ec4-4172-a29a-594240fe4945'
 
