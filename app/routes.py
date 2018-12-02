@@ -56,10 +56,6 @@ def car_list():
         posts.append(data)
     return render_template('car_list/car_list.html', posts=posts)
 
-@app.route('/car_form', methods=['GET'])
-def car_form():
-    return render_template('car_form/car_form.html',
-            lat='41.3137799', lng='-72.9331142')
 
 @app.route('/control_panel/client', methods=['GET'])
 def control_panel_client():
@@ -135,6 +131,12 @@ client = smartcar.AuthClient(
 #hard-coded car
 access_token='0f3ecfb0-fd28-497c-ac13-22605ea94d08'
 
+@app.route('/car_form', methods=['GET'])
+def car_form():
+    auth_url = client.get_auth_url(force=True)+"&mode=test"
+    return render_template('car_form/car_form.html',
+                           lat='41.3137799', lng='-72.9331142', url=auth_url)
+
 @app.route('/car_auth', methods=['GET'])
 def car_auth():
     auth_url = client.get_auth_url(force=True)+"&mode=test"
@@ -150,11 +152,8 @@ def callback():
     code = request.args.get('code')
     access = client.exchange_code(code)
 
-    # Log the access token response
-    print(access)
-
     # Respond with a success status to browser
-    return jsonify(access)
+    return redirect(url_for('message'))
 
 def get_vehicle(access_token):
     response = smartcar.get_vehicle_ids(access_token)
