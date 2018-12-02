@@ -1,12 +1,8 @@
 import smartcar
 import requests
-<<<<<<< HEAD
 import time
 import datetime
-from flask import Flask, request, jsonify, redirect, render_template
-=======
 from flask import Flask, request, jsonify, redirect, render_template, url_for
->>>>>>> 1068080258bb34cdd52f0fef42aa22e627a8af5b
 from app import app
 
 import firebase_admin
