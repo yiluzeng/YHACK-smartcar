@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='owner-control.css') }}">
+
+    <link rel="author" href="/humans.txt" />
+
+    {% block title %} Grab'n Go {% endblock %}
+
+    <!-- Links for mobile apps -->
+    <link rel="manifest" href="{{ url_for('static', filename='manifest/manifest.json') }}" >
+    <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
+
+    {% endblock %}
+</head>
+
+<body>
+    {% block nav %}
+    {% endblock %}
+
+    {% block content %}
+
+    <div id="menu"> </div>
+
+    <div id="map"> </div>
+
+    <div id="lock"> </div>
+
+    <div id="divider"> </div>
+
+    <div id="contact"> </div>
+
+    <div id="rectang1">
+     <center>
+    <div id="button1" style="font-family: Saira;">Safe Zone</div>
+    <div id="button2" style="font-family: Saira;">Location</div>
+    <div id="button3" style="font-family: Saira;">Edit Range</div>
+    </center>
+    </div>
+
+    <div id="rectang2">
+    <center>
+    <div id="button1" style="font-family: Saira;">Income</div>
+    <div id="button2" style="font-family: Saira;">Odometer</div>
+    <div id="button3" style="font-family: Saira;">Contract</div>
+    </center>
+    </div>
+
+    <div id="zonemap"> <img src="https://www.citymetric.com/sites/default/files/styles/nodeimage/public/article_2016/08/gmaps_head.png?itok=MZsYvZFq" style="height: 100%;"> </div>
+
+    <div id="modelheader">TESLA MODEL S (#12345)</div>
+
+    <div id="ownercontact">CONTACT CLIENT</div>
+
+    <div id="lockcar">Stop Car</div>
+
+    <div id="lockpic"><img src="https://png2.kisspng.com/sh/389e65b8ec67152128399c9fa524d105/L0KzQYm3UsE5N5htiZH0aYP2gLBuTfxwa5wygdV4LXnmf7A0lf5td5RwfdY2bHBme37qjPlxaaN5i58AYUi8c4OAU8JlQZc8UJC5OUm8Q4i6VME2OWkAT6kBNUG0SIeCTwBvbz==/kisspng-lock-ico-icon-unlocked-lock-cliparts-5a89c2732d9f78.0999373415189776511869.png"></div>
+
+
+
+{% endblock %}
+</body>
+{% block domJS %}
+{% endblock %}
+</html>

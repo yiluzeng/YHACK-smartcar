@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Control Panel{% endblock %}
+
+{% block assets %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='client-control2.css') }}">
+<style>
+  #map {
+      width: 100%;
+      height: 400px;
+      background-color: grey;
+  }
+</style>
+<script>
+  function initMap() {
+      var coords = {lat: 41.3137799, lng: -72.9331142};
+      var map = new google.maps.Map(
+          document.getElementById('map'), {zoom: 14, center: coords});
+      var marker = new google.maps.Marker({position: coords, map: map});
+  }
+</script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYH-N-3EPSLrOjGB4GoEDCJ6J2AlzzNkw&callback=initMap">
+</script>
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <p class="display-3 col">TESLA MODEL S (#12345)</p>
+    <div class="col-1 align-self-center">
+      <button class="btn btn-secondary" id="setting-btn">
+        <i class="fas fa-cogs"></i>
+      </button>
+    </div>
+  </div>
+  <div class="row status">
+    <p class="col">
+      <i class="far fa-clock"></i> 1:23 Hours left
+    </p>
+
+    <p class="col">
+      <i class="fas fa-dollar-sign"></i> 12.34
+    </p>
+  </div>
+
+  <button class="btn btn-success large-btn row col mb-5">
+    Lock Car <i class="fas fa-lock"></i>
+  </button>
+
+  <div class="row col content-justify-center">
+      <div id="map"></div>
+  </div>
+
+  <div class="row status ml-2 mt-3 mb-3 ">
+    <b>Location:</b>&nbsp (41.3080123, -72.9205107)
+  </div>
+
+  <button class="row col btn btn-warning large-btn">
+    CONTACT OWNER
+  </button>
+
+{% endblock %}

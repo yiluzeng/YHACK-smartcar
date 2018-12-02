@@ -1,0 +1,15 @@
+body {
+background: #F2FFFD;
+}
+
+.large-btn {
+  font-size: 1.3rem;
+}
+
+.status {
+  font-size: 1.6rem;
+}
+
+#setting-btn {
+  font-size: 2rem;
+}
