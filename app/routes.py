@@ -100,7 +100,7 @@ access_token='0f3ecfb0-fd28-497c-ac13-22605ea94d08'
 
 @app.route('/car_auth', methods=['GET'])
 def car_auth():
-    auth_url = client.get_auth_url(force=True)+"&approval_prompt=force"+"&mode=test"
+    auth_url = client.get_auth_url(force=True)+"&mode=test"
     return '''
 <h1>Authenticate Car</h1>
 <a href=%s>
@@ -138,8 +138,6 @@ def callback():
         # Vehicle info
         car_obj = smartcar.Vehicle(car_id, access_token)
         car_info = car_obj.info()
-
-        print(AAAAAAAAA)
 
         car_ref = db.collection(u'cars').document(car_id)
         car_ref.set({
