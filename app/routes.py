@@ -79,8 +79,27 @@ def control_panel_owner2():
 
 
 @app.route('/message', methods=['GET'])
-def massage():
-    return render_template('message/message.html')
+def message():
+    doc_ref = db.collection(u'requests').document(u'new')
+
+    hide = '1'
+    try:
+        hide = doc_ref.get('seller').get('seller')
+    except:
+        hide = '1'
+    return render_template('message/message.html', request=hide)
+
+@app.route('/pending', methods=['GET'])
+def pending():
+    doc_ref = db.collection(u'requests').document(u'new')
+
+    hide = '1'
+    try:
+        hide = doc_ref.get('seller').get('seller')
+    except:
+        hide = '1'
+        return render_template('message/pending.html', request=hide)
+
 
 @app.route('/landing', methods=['GET'])
 def landing():
@@ -95,7 +114,13 @@ def make_request():
 
     # Add a new doc in collection 'cities' with ID 'LA'
     db.collection(u'requests').document(u'new').set(data)
-    return redirect('/')
+    return redirect(url_for('pending'))
+
+@app.route('/delete_request')
+def delete_request():
+    data_ref = db.collection(u'requests').document(u'new').delete()
+    
+    return redirect(url_for('message'))
 
 CLIENT_ID = 'cdf41817-f479-42c9-8f48-6fa2c0ff058d'
 CLIENT_SECRET = 'f8ab46a3-4ec4-4172-a29a-594240fe4945'
