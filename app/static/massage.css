@@ -13,3 +13,15 @@
   display: inline-block;
   min-width: 250px;
 }
+
+.query-status{
+  font-size: 1.2rem;
+}
+
+.request-card{
+  background-color: rgb(233, 249, 250)
+}
+
+.query-card{
+  background-color: rgb(235, 250, 233)
+}
