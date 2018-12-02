@@ -1,5 +1,7 @@
 import smartcar
 import requests
+import time
+import datetime
 from flask import Flask, request, jsonify, redirect, render_template, url_for
 from app import app
 
@@ -109,6 +111,8 @@ def delete_request():
 
     return redirect(url_for('message'))
 
+
+# Smartcar API Callers
 CLIENT_ID = 'cdf41817-f479-42c9-8f48-6fa2c0ff058d'
 CLIENT_SECRET = 'f8ab46a3-4ec4-4172-a29a-594240fe4945'
 
@@ -142,6 +146,50 @@ def car_auth():
 def callback():
     code = request.args.get('code')
     access = client.exchange_code(code)
+
+    # Log the access token response
+    print(access)
+
+    # Populate user info in database
+    access_token = access['access_token']
+    at_duration = access['expires_in']
+    userid = smartcar.get_user_id(access_token)
+    vehicles = smartcar.get_vehicle_ids(access_token)['vehicles']
+
+    access_token_expire = datetime.datetime.fromtimestamp(time.time() + at_duration)
+
+    usr_ref = db.collection(u'users').document(userid)
+    usr_ref.set({
+        u'access_token' : access_token,
+        u'access_token_expire' : access_token_expire,
+        u'refresh_token' : access['refresh_token'],
+        u'cars' : vehicles
+    })
+    
+    # Generate vehicles
+    for car_id in vehicles:
+        # Vehicle info
+        car_obj = smartcar.Vehicle(car_id, access_token)
+        car_info = car_obj.info()
+
+        # Convert model into car_model as saved in database
+        if car_info['make'] == "TESLA":
+            if car_info['model'] == "Model 3":
+                car_make = "tesla-3"
+            elif car_info['model'] == "Model X":
+                car_make = "tesla-X"
+            elif car_info['model'] == "Model S":
+                car_make = "tesla-S"
+        else:
+            car_make = car_info['make']
+
+        car_ref = db.collection(u'cars').document(car_id)
+        car_ref.set({
+            u'manufacturer' : car_info['make'],
+            u'car_model' : car_model,
+            u'car_year' : car_info['year'],
+            u'owner' : db.collection(u'users').document(userid)
+        })
 
     # Respond with a success status to browser
     access_token = access['access_token']
