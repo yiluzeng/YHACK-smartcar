@@ -27,24 +27,19 @@
 </div>
 
 <div class="container mt-3">
-  {% for i in range(0, 3) %}
-    <div class="row car-card-row">
-      {% for j in range(0, 3) %}
-        <div class="col car-card-col">
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src="static/images/tesla.png" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Tesla Model S, 2017</h5>
-                <p class="card-text">Providence, RI</p>
-                <p class="card-text">$ 99.99 / day</p>
-                <a href="{{ url_for('car_info') }}" class="btn btn-primary">Rent</a>
-              </div>
-            </div>
-        </div>
-      {% endfor %}
-    </div>
-  {% endfor %}
+  {% for post in posts %}
+  {% if loop.index % 3 == 1 %}
+  <div class="row car-card-row">
+    {% endif %}
+
+    {% include "car_list/_post.html" %}
+    
+    {% if loop.index % 3 == 0 %}
+  </div>
+  {% endif %}
+  {% endfor %}    
 </div>
+
 
 
 {% endblock %}

@@ -3,6 +3,22 @@ import requests
 from flask import Flask, request, jsonify, redirect, render_template
 from app import app
 
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import firestore
+
+cred = credentials.Certificate("yhack-smartcar-firebase-adminsdk-6aysw-1bf4fe0230.json")
+
+
+firebase_admin.initialize_app(cred, {
+'databaseURL': 'https://yhack-smartcar.firebaseio.com'
+})
+
+
+db = firestore.client()
+
+cars_ref = db.collection(u'cars')
+
 @app.errorhandler(404)
 def page_not_found(e):
     return redirect('/')
@@ -19,7 +35,15 @@ def car_info():
 
 @app.route('/car_list', methods=['GET'])
 def car_list():
-    return render_template('car_list/car_list.html')
+    cars = cars_ref.get()
+    posts = []
+    for car in cars:
+        data = car.to_dict()
+        data['name'] = car.get('car_make').get().get('make')
+        data['image'] = car.get('car_make').get().get('image')
+        
+        posts.append(data)
+    return render_template('car_list/car_list.html', posts=posts)
 
 @app.route('/car_form', methods=['GET'])
 def car_form():
