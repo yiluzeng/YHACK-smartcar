@@ -8,6 +8,59 @@
         background-color: grey;
     }
   </style>
+  <script async defer
+       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYH-N-3EPSLrOjGB4GoEDCJ6J2AlzzNkw&callback=initMap">
+  </script>
+  <script>
+      function initMap() {
+        var coords = {lat: {{ lat }}, lng: {{ lng }}};
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 14, center: coords});
+        var safeCircle;
+        var marker;
+
+        function placeMarker(location) {
+          if ( marker ) {
+            marker.setPosition(location);
+            safeCircle.setCenter(location);
+          } else {
+            marker = new google.maps.Marker({
+              position: location,
+              map: map
+            });
+
+            var r = $("#formOwnerRadius").val();
+            if(r){
+              r = parseFloat(r);
+            }else {
+              r = 400;
+            }
+
+            safeCircle = new google.maps.Circle({
+              strokeColor: '#FF0000',
+              strokeOpacity: 0.8,
+              strokeWeight: 2,
+              fillColor: '#FF0000',
+              fillOpacity: 0.35,
+              map: map,
+              center: location,
+              radius: r
+            });
+          }
+
+          $("#location").val(location);
+        }
+        google.maps.event.addListener(map, 'click', function(event) {
+          placeMarker(event.latLng);
+        });
+
+        $('#formOwnerRadius').change( (e) => {
+          if ( safeCircle ) {
+            safeCircle.setRadius(parseFloat(e.target.value));
+          }
+        })
+      }
+  </script>
 {% endblock %}
 
 {% block title %}Car Registration{% endblock %}
@@ -53,25 +106,18 @@
 
     <h3>Service Zone</h3>
     <div class="form-group">
-      <label for="formOwnerRadiusn">Service Zone Radius (km)</label>
-      <input type="number" class="form-control" id="formOwnerRadiusn">
+      <label for="formOwnerRadius">Service Zone Radius (meters)</label>
+      <input type="number" class="form-control" id="formOwnerRadius">
     </div>
     <div class="form-group">
+<<<<<<< HEAD
+      <label for="formOwnerLocation">Service Zone Origin</label>
+      <input id="formOwnerLocation" name="location" type="hidden" value="" />
+=======
       <label for="formOwnerLocatio">Service Zone Origin</label>
+>>>>>>> f75f003419bf21691306b288f4c9b3b9f24bdbb8
       <div id="map"></div>
-      <script>
-function initMap() {
-    var coords = {lat: {{ lat }}, lng: {{ lng }}};
-    var map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 14, center: coords});
-    var marker = new google.maps.Marker({position: coords, map: map});
-}
-      </script>
-      <script async defer
-           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYH-N-3EPSLrOjGB4GoEDCJ6J2AlzzNkw&callback=initMap">
-      </script>
     </div>
-
     <div class="form-group form-check">
       <input type="checkbox" class="form-check-input" id="exampleCheck1">
       <label class="form-check-label" for="exampleCheck1">
