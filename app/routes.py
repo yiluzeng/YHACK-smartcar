@@ -172,10 +172,21 @@ def callback():
         car_obj = smartcar.Vehicle(car_id, access_token)
         car_info = car_obj.info()
 
+        # Convert model into car_model as saved in database
+        if car_info['make'] == "TESLA":
+            if car_info['model'] == "Model 3":
+                car_make = "tesla-3"
+            elif car_info['model'] == "Model X":
+                car_make = "tesla-X"
+            elif car_info['model'] == "Model S":
+                car_make = "tesla-S"
+        else:
+            car_make = car_info['make']
+
         car_ref = db.collection(u'cars').document(car_id)
         car_ref.set({
             u'manufacturer' : car_info['make'],
-            u'model' : car_info['model'],
+            u'car_model' : car_model,
             u'car_year' : car_info['year'],
             u'owner' : db.collection(u'users').document(userid)
         })
