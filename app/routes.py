@@ -62,6 +62,10 @@ def control_panel_client2():
 def control_panel_owner():
     return render_template('control_panel/owner-control.html')
 
+@app.route('/massage', methods=['GET'])
+def massage():
+    return render_template('massage/massage.html')
+
 @app.route('/landing', methods=['GET'])
 def landing():
     return render_template('landing/landing.html')

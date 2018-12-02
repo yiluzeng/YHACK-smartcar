@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Massage{% endblock %}
+
+{% block assets %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='massage.css') }}">
+{% endblock %}
+
+{% block content %}
+  {% for i in range(1, 4) %}
+    <div class="row card mb-3">
+      <div class="card-body">
+        <div class="row mb-2">
+          <div class="profile-image">
+            <img src="/static/images/elyse.png" width="50">
+          </div>
+          <div>
+            <h5 class="card-title">Elyse Johnson</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Rental Request</h6>
+          </div>
+          <div class="ml-auto mr-3">
+            <a href="#" class="btn btn-success mr-2">Approve <i class="fas fa-check"></i></a>
+            <a href="#" class="btn btn-danger">Reject <i class="fas fa-times"></i></a>
+          </div>
+        </div>
+        <p class="card-text">Hi! Your car looks great and I want to rent it. <br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec <br>
+          rhoncus dui nec ex viverra mollis. Curabitur eget feugiat massa. </p>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}
