@@ -121,7 +121,7 @@ client = smartcar.AuthClient(
 )
 
 #hard-coded car
-access_token='0f3ecfb0-fd28-497c-ac13-22605ea94d08'
+access_token='737ceae9-bc33-4bb4-9ff1-bb4c91319c70'
 
 @app.route('/car_form', methods=['GET'])
 def car_form():
@@ -145,6 +145,7 @@ def callback():
     access = client.exchange_code(code)
 
     # Respond with a success status to browser
+    access_token = access['access_token']
     return redirect(url_for('message'))
 
 def get_vehicle(access_token):
