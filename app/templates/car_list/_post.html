@@ -7,7 +7,7 @@
       <h5 class="card-title">{{ post.name }}</h5>
       <p class="card-subtitle">{{ post.city }}</p>
       <p class="card-text">$ {{ post.rate }} / day</p>
-      <a href="{{ url_for('car_info') }}" class="btn btn-primary">Rent</a>
+      <a href="{{ url_for('car_info', uid = post.uid ) }}" class="btn btn-primary">Rent</a>
     </div>
   </div>
 </div>

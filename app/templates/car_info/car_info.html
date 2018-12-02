@@ -7,22 +7,22 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="display-4">Tesla Model S 2017</h1>
-<img class="rounded img-fluid row mb-5" style="min-width:100%" src="https://firebasestorage.googleapis.com/v0/b/yhack-smartcar.appspot.com/o/tesla-model-s-hero-image-again-really.jpg?alt=media&token=91db16e4-723f-46f5-920a-201b51fca432" />
+<h1 class="display-4">{{ car.name }}</h1>
+<img class="rounded img-fluid row mb-5" style="min-width:100%" src="{{ car.image }}" />
 <div class="row mt-5 cardetail">
   <div class="col">
-    <i class="fas fa-map-marker-alt"></i> Providence, RI
+    <i class="fas fa-map-marker-alt"></i> {{ car.city }}
   </div>
   <div class="col">
     <b>Type:</b> Electric car
   </div>
   <div class="col">
-    <b>Features:</b> GPS, Remote lock/unlock
+    <b>Features:</b> {{ car.features }}
   </div>
 </div>
 <div class="row mt-3 cardetail">
   <div class="col">
-    <i class="fas fa-dollar-sign"></i> 24 / day
+    <i class="fas fa-dollar-sign"></i> {{ car.rate }} / day
   </div>
   <div class="col">
     <b>Seats:</b> 5

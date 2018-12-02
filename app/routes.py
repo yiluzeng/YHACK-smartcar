@@ -6,6 +6,7 @@ from app import app
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
+import sys
 
 cred = credentials.Certificate("yhack-smartcar-firebase-adminsdk-6aysw-1bf4fe0230.json")
 
@@ -29,9 +30,18 @@ def index():
     return redirect('/landing')
 #   return render_template('index/index.html')
 
-@app.route('/car_info', methods=['GET'])
-def car_info():
-    return render_template('car_info/car_info.html')
+@app.route('/car_info/<uid>', methods=['GET'])
+def car_info(uid):
+    car = cars_ref.document(uid).get()
+    data = car.to_dict()
+    if data is None:
+        return redirect('/landing')
+    else:
+        data['name'] = car.get('car_make').get().get('make')
+        data['features'] = car.get('car_make').get().get('features')
+        data['image'] = car.get('car_make').get().get('image')
+
+        return render_template('car_info/car_info.html', car=data);
 
 @app.route('/car_list', methods=['GET'])
 def car_list():
@@ -41,6 +51,7 @@ def car_list():
         data = car.to_dict()
         data['name'] = car.get('car_make').get().get('make')
         data['image'] = car.get('car_make').get().get('image')
+        data['uid'] = car.id
 
         posts.append(data)
     return render_template('car_list/car_list.html', posts=posts)
@@ -61,6 +72,11 @@ def control_panel_client2():
 @app.route('/control_panel/owner', methods=['GET'])
 def control_panel_owner():
     return render_template('control_panel/owner-control.html')
+
+@app.route('/control_panel/owner2', methods=['GET'])
+def control_panel_owner2():
+    return render_template('control_panel/owner-control2.html')
+
 
 @app.route('/message', methods=['GET'])
 def massage():
