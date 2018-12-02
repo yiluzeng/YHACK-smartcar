@@ -42,10 +42,11 @@
       <i class="fas fa-dollar-sign"></i> 12.34
     </p>
   </div>
-
+  <div class="lock">
   <button class="btn btn-success large-btn row col mb-5">
     Lock Car <i class="fas fa-lock"></i>
   </button>
+  </div>
 
   <div class="row col content-justify-center">
       <div id="map"></div>
@@ -58,5 +59,32 @@
   <button class="row col btn btn-warning large-btn">
     CONTACT OWNER
   </button>
+
+  <script>
+   lock = document.querySelector('.lock button');
+
+   function lockCar() {
+     lock.classList.remove('btn-success');
+     lock.classList.add('btn-danger');
+     lock.innerHTML = 'Unlock Car <i class="fas fa-unlock">';
+     lock.removeEventListener('click', () => {
+       setTimeout(lockCar, 2000)});
+     lock.addEventListener('click', () => {
+       setTimeout(unlockCar, 2000)});
+   }
+   function unlockCar() {
+     lock.classList.remove('btn-danger');
+     lock.classList.add('btn-success');
+     lock.innerHTML = 'Lock Car <i class="fas fa-lock">';
+     lock.removeEventListener('click', () => {
+       setTimeout(unlockCar, 2000)});
+     lock.addEventListener('click', () => {
+       setTimeout(lockCar, 2000)});
+   }
+
+   
+   lock.addEventListener('click', () => {
+     setTimeout(lockCar, 2000)});
+  </script>
 
 {% endblock %}
