@@ -7,14 +7,6 @@ from app import app
 def page_not_found(e):
     return redirect('/')
 
-#DL test
-@app.route('/car_map', methods=['GET'])
-def car_map():
-    # vehicle = get_vehicle(access_token)
-    # location = vehicle.location()
-
-    return render_template('car_map/car_map.html', place='Eiffel+Tower,Paris,+France', coord='40.8075355,-73.964756')
-
 @app.route('/', methods=['GET'])
 @app.route('/index', methods=['GET'])
 def index():
@@ -31,7 +23,8 @@ def car_list():
 
 @app.route('/car_form', methods=['GET'])
 def car_form():
-    return render_template('car_form/car_form.html')
+    return render_template('car_form/car_form.html', 
+            lat='41.3137799', lng='-72.9331142')
 
 @app.route('/control_panel/client', methods=['GET'])
 def control_panel_client():
