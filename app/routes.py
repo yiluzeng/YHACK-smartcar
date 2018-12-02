@@ -124,7 +124,7 @@ client = smartcar.AuthClient(
 )
 
 #hard-coded car
-access_token='737ceae9-bc33-4bb4-9ff1-bb4c91319c70'
+access_token = db.collection(u'users').document(u'zach').get().get('access_token')
 
 @app.route('/car_form', methods=['GET'])
 def car_form():
@@ -158,7 +158,7 @@ def callback():
 
     access_token_expire = datetime.datetime.fromtimestamp(time.time() + at_duration)
 
-    usr_ref = db.collection(u'users').document(userid)
+    usr_ref = db.collection(u'users').document(u'zach')
     usr_ref.set({
         u'access_token' : access_token,
         u'access_token_expire' : access_token_expire,
@@ -186,7 +186,7 @@ def callback():
         car_ref = db.collection(u'cars').document(car_id)
         car_ref.set({
             u'manufacturer' : car_info['make'],
-            u'car_model' : car_model,
+            u'car_make' : db.collection(u'car_makes').document(car_make),
             u'car_year' : car_info['year'],
             u'owner' : db.collection(u'users').document(userid)
         })
