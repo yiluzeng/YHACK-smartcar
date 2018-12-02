@@ -7,46 +7,19 @@
 {% endblock %}
 
 {% block content %}
-<div class="row card mb-3 request-card">
-  <div class="card-body">
-    <div class="row mb-2">
-      <div class="profile-image">
-        <img src="/static/images/zach_profile.jpg" width="50">
-      </div>
-      <div>
-        <h5 class="card-title">Zachary Trefler (<i class="far fa-star"></i> 4.2)</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Rental Request</h6>
-      </div>
-      <div class="ml-auto mr-3">
-        <a href="#" class="btn btn-success mr-2">Approve <i class="fas fa-check"></i></a>
-        <a href="#" class="btn btn-danger">Reject <i class="fas fa-times"></i></a>
-      </div>
-    </div>
-    <button class="btn btn-info float-right chat-btn">Chat <i class="far fa-comment-alt"></i></button>
-    <p class="request-info mb-2 ml-3">
-      <span class="request-model">
-        <i class="fas fa-car"></i> <b>Car:</b> Audi Q7
-      </span>
-      <i class="far fa-calendar-alt"></i> <b>Time:</b> 12/2/18 - 12/3/18
-    </p>
-    <p class="card-text">Hi! Your car looks great! I would love to rent it.
-    </p>
-  </div>
-</div>
 {% if request == '1' %}
-<div class="row card mb-3 request-card">
+<div class="row card mb-3 query-card">
   <div class="card-body">
     <div class="row mb-2">
       <div class="profile-image">
-        <img src="/static/images/desmond_profile.jpg" width="50">
+        <img src="/static/images/dylan_profile.jpg" height="50" width="50">
       </div>
       <div>
-        <h5 class="card-title">Desmond Cheong(<i class="far fa-star"></i> 5.0)</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Rental Request</h6>
+        <h5 class="card-title">Dylan Lee (<i class="far fa-star"></i> 4.2)</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Rental Query</h6>
       </div>
       <div class="ml-auto mr-3">
-        <a href="{{ url_for('delete_request') }}" class="btn btn-success mr-2">Approve <i class="fas fa-check"></i></a>
-        <a href="#" class="btn btn-danger">Reject <i class="fas fa-times"></i></a>
+        <span class="badge badge-pill badge-secondary query-status">Pending</span>
       </div>
     </div>
     <button class="btn btn-info float-right chat-btn">Chat <i class="far fa-comment-alt"></i></button>
@@ -60,7 +33,34 @@
     </p>
   </div>
 </div>
+{% else %}
+<a href="{{ url_for('control_panel_client2') }}">
+<div class="row card mb-3 query-card">
+  <div class="card-body">
+    <div class="row mb-2">
+      <div class="profile-image">
+        <img src="/static/images/dylan_profile.jpg" height="50" width="50">
+      </div>
+      <div>
+        <h5 class="card-title">Dylan Lee (<i class="far fa-star"></i> 4.2)</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Rental Query</h6>
+      </div>
+      <div class="ml-auto mr-3">
+        <span class="badge badge-pill badge-success query-status">Accepted</span>
+      </div>
+    </div>
+    <button class="btn btn-info float-right chat-btn">Chat <i class="far fa-comment-alt"></i></button>
+    <p class="request-info mb-2 ml-3">
+      <span class="request-model">
+        <i class="fas fa-car"></i> <b>Car:</b> Tesla Model S
+      </span>
+      <i class="far fa-calendar-alt"></i> <b>Time:</b> 12/2/18 - 12/3/18
+    </p>
+    <p class="card-text">Omg. A Tesla. Please pleasepleaseplease let me rent this car.
+    </p>
+  </div>
+</div>
+</a>
 {% endif %}
-
 
 {% endblock %}

@@ -1,23 +1,20 @@
 import smartcar
 import requests
+<<<<<<< HEAD
 import time
 import datetime
 from flask import Flask, request, jsonify, redirect, render_template
+=======
+from flask import Flask, request, jsonify, redirect, render_template, url_for
+>>>>>>> 1068080258bb34cdd52f0fef42aa22e627a8af5b
 from app import app
 
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
+import sys
 
-cred = credentials.Certificate("yhack-smartcar-firebase-adminsdk-6aysw-1bf4fe0230.json")
-
-
-firebase_admin.initialize_app(cred, {
-'databaseURL': 'https://yhack-smartcar.firebaseio.com'
-})
-
-
-db = firestore.client()
+from app.firedata import db
 
 cars_ref = db.collection(u'cars')
 
@@ -31,9 +28,18 @@ def index():
     return redirect('/landing')
 #   return render_template('index/index.html')
 
-@app.route('/car_info', methods=['GET'])
-def car_info():
-    return render_template('car_info/car_info.html')
+@app.route('/car_info/<uid>', methods=['GET'])
+def car_info(uid):
+    car = cars_ref.document(uid).get()
+    data = car.to_dict()
+    if data is None:
+        return redirect('/landing')
+    else:
+        data['name'] = car.get('car_make').get().get('make')
+        data['features'] = car.get('car_make').get().get('features')
+        data['image'] = car.get('car_make').get().get('image')
+
+    return render_template('car_info/car_info.html', car=data);
 
 @app.route('/car_list', methods=['GET'])
 def car_list():
@@ -43,14 +49,11 @@ def car_list():
         data = car.to_dict()
         data['name'] = car.get('car_make').get().get('make')
         data['image'] = car.get('car_make').get().get('image')
+        data['uid'] = car.id
 
         posts.append(data)
     return render_template('car_list/car_list.html', posts=posts)
 
-@app.route('/car_form', methods=['GET'])
-def car_form():
-    return render_template('car_form/car_form.html',
-            lat='41.3137799', lng='-72.9331142')
 
 @app.route('/control_panel/client', methods=['GET'])
 def control_panel_client():
@@ -58,15 +61,38 @@ def control_panel_client():
 
 @app.route('/control_panel/client2', methods=['GET'])
 def control_panel_client2():
-    return render_template('control_panel/client-control2.html')
+    return render_template('control_panel/client-control2.html', contactee='OWNER')
 
 @app.route('/control_panel/owner', methods=['GET'])
 def control_panel_owner():
     return render_template('control_panel/owner-control.html')
 
+@app.route('/control_panel/owner2', methods=['GET'])
+def control_panel_owner2():
+    return render_template('control_panel/client-control2.html', contactee='CLIENT')
+
 @app.route('/message', methods=['GET'])
-def massage():
-    return render_template('message/message.html')
+def message():
+    doc_ref = db.collection(u'requests').document(u'new')
+
+    hide = '1'
+    try:
+        hide = doc_ref.get('seller').get('seller')
+    except:
+        hide = '1'
+    return render_template('message/message.html', request=hide)
+
+@app.route('/pending', methods=['GET'])
+def pending():
+    doc_ref = db.collection(u'requests').document(u'new')
+
+    hide = '1'
+    try:
+        hide = doc_ref.get('seller').get('seller')
+    except:
+        hide = '1'
+    return render_template('message/pending.html', request=hide)
+
 
 @app.route('/landing', methods=['GET'])
 def landing():
@@ -81,7 +107,13 @@ def make_request():
 
     # Add a new doc in collection 'cities' with ID 'LA'
     db.collection(u'requests').document(u'new').set(data)
-    return redirect('/')
+    return redirect(url_for('pending'))
+
+@app.route('/delete_request')
+def delete_request():
+    data_ref = db.collection(u'requests').document(u'new').delete()
+
+    return redirect(url_for('message'))
 
 
 # Smartcar API Callers
@@ -96,7 +128,13 @@ client = smartcar.AuthClient(
 )
 
 #hard-coded car
-access_token='0f3ecfb0-fd28-497c-ac13-22605ea94d08'
+access_token='737ceae9-bc33-4bb4-9ff1-bb4c91319c70'
+
+@app.route('/car_form', methods=['GET'])
+def car_form():
+    auth_url = client.get_auth_url(force=True)+"&mode=test"
+    return render_template('car_form/car_form.html',
+                           lat='41.3137799', lng='-72.9331142', url=auth_url)
 
 @app.route('/car_auth', methods=['GET'])
 def car_auth():
@@ -147,7 +185,8 @@ def callback():
         })
 
     # Respond with a success status to browser
-    return jsonify(access)
+    access_token = access['access_token']
+    return redirect(url_for('message'))
 
 def get_vehicle(access_token):
     response = smartcar.get_vehicle_ids(access_token)

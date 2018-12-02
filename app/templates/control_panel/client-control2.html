@@ -5,19 +5,53 @@
 {% block assets %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='client-control2.css') }}">
 <style>
-  #map {
-      width: 100%;
-      height: 400px;
-      background-color: grey;
-  }
+ #map {
+   width: 100%;
+   height: 400px;
+   background-color: grey;
+ }
 </style>
 <script>
-  function initMap() {
-      var coords = {lat: 41.3137799, lng: -72.9331142};
-      var map = new google.maps.Map(
-          document.getElementById('map'), {zoom: 14, center: coords});
-      var marker = new google.maps.Marker({position: coords, map: map});
-  }
+
+ 
+ function initMap() {
+   var latitude = 41.3137799;
+   var longitude = -72.9331142;
+   fetch('http://localhost:5000/get_location').then(response => {
+     return response.json();
+   }).then(data => {
+     // Work with JSON data here
+     longitude = data.data.longitude;
+     latitiude = data.data.latitude;
+     
+     const lat = document.querySelector('.lat');
+     lat.innerText = latitude.toString();
+
+     const lon = document.querySelector('.lon');
+     lon.innerText = longitude.toString();
+
+     var coords = {lat: latitude, lng: longitude};
+     var map = new google.maps.Map(
+       document.getElementById('map'), {zoom: 14, center: coords});
+     var marker = new google.maps.Marker({position: coords, map: map});
+   }).catch(err => {
+     // Do something for an error here
+     
+     const lat = document.querySelector('.lat');
+     lat.innerText = latitude.toString();
+
+     const lon = document.querySelector('.lon');
+     lon.innerText = longitude.toString();
+
+     var coords = {lat: latitude, lng: longitude};
+     var map = new google.maps.Map(
+       document.getElementById('map'), {zoom: 14, center: coords});
+     var marker = new google.maps.Marker({position: coords, map: map});
+   });
+
+   
+ }
+
 </script>
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYH-N-3EPSLrOjGB4GoEDCJ6J2AlzzNkw&callback=initMap">
@@ -26,7 +60,7 @@
 
 {% block content %}
   <div class="row">
-    <p class="display-3 col">TESLA MODEL S (#12345)</p>
+    <p class="display-3 col">TESLA MODEL S (#1365)</p>
     <div class="col-1 align-self-center">
       <button class="btn btn-secondary" id="setting-btn">
         <i class="fas fa-cogs"></i>
@@ -42,21 +76,49 @@
       <i class="fas fa-dollar-sign"></i> 12.34
     </p>
   </div>
-
+  <div class="lock">
   <button class="btn btn-success large-btn row col mb-5">
     Lock Car <i class="fas fa-lock"></i>
   </button>
+  </div>
 
   <div class="row col content-justify-center">
       <div id="map"></div>
   </div>
 
   <div class="row status ml-2 mt-3 mb-3 ">
-    <b>Location:</b>&nbsp (41.3080123, -72.9205107)
+    <b>Location:</b>&nbsp (<span class="lat">41.3080123</span>, <span class="lon">-72.9205107</span>)
   </div>
 
   <button class="row col btn btn-warning large-btn">
-    CONTACT OWNER
+    CONTACT {{ contactee }}
   </button>
+
+  <script>
+   lock = document.querySelector('.lock button');
+
+   function lockCar() {
+     lock.classList.remove('btn-success');
+     lock.classList.add('btn-danger');
+     lock.innerHTML = 'Unlock Car <i class="fas fa-unlock">';
+     lock.removeEventListener('click', () => {
+       setTimeout(lockCar, 2000)});
+     lock.addEventListener('click', () => {
+       setTimeout(unlockCar, 2000)});
+   }
+   function unlockCar() {
+     lock.classList.remove('btn-danger');
+     lock.classList.add('btn-success');
+     lock.innerHTML = 'Lock Car <i class="fas fa-lock">';
+     lock.removeEventListener('click', () => {
+       setTimeout(unlockCar, 2000)});
+     lock.addEventListener('click', () => {
+       setTimeout(lockCar, 2000)});
+   }
+
+   
+   lock.addEventListener('click', () => {
+     setTimeout(lockCar, 2000)});
+  </script>
 
 {% endblock %}

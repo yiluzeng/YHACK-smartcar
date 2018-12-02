@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "yhack-smartcar",
+  "private_key_id": "b905088e1d5c79c5a7083bac5f6291b5cd389abe",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDZGJ8j4E6LkoGz\nFKXpt8a4BGuF1r7R6WDicns6wGjrideeprSUNetKP9ki2YtuHvYAcvG/g/+aVJCF\nj8SBVhhKgdeH+PoVUX1QfTN0qBg/+Ik3BPBEXP/UPEmQVW0J05il/qcrJtK+5Lz6\njWFsgt+DzY+9O77JULISQbztchvL1bUAASfESX4OyuwQhKwQYVRkPO62TXZp/Efw\npN/KkscfxJIuql1v8rnUpUC1E5sNcNYG+JrYAg3Z6EeJ7qVSZfVNrLSzBdOPF0Wb\nbs4aVqipeRA+e4UThvrJt2k7gOyXz2i8fqrEh5yoq0qt10tF0DKmF7XipM7EkctS\n0+GvQM+BAgMBAAECggEANr81yqdTR3FP0ehgGrtkmp1KvDq2blsrOo/iMaO6EcP2\nIyUpHsMmLdhCGr6/oaqfIOfbvQ89kx7GP1hNFsyuXYO25axM7LlbH8QjCMUnMGKt\nv7k4GhVV0qDNcF+KmtLIiPvaDlDBDrDCU3D545JxaVyaZf8+EqiN73qyeTKwfctU\n7N6SrnxzO9Ei4OWylGb6m3mWNoruiWPFNmufAAF/tpanqyGDAYAKCj/3HyAncoE7\ngQQXO95IXBQa+zbYBXhZiE4VuCoZbV5225UFUunT4JunfvyBI9hfVrqWs622OPqR\njgAGFhBjlD4mguDeYKi6665jeHzqq+RVEwEmtL+o/QKBgQDtlw4TkLZedP4qPJDA\ngnSUKSok9BfZtvLroNaEXo3gkLg/XEplFalA955zzIuk52sW8iANC0WjsZvMLGJA\n0EO3t87FrsrWrD4QD+tIjmPrYI4+81bbY6RTjj+Mi7U8HleVcNxPU5BUkEeEVceI\nC8gv+xPAuMr4ksL/ZTeo4VbONwKBgQDp6wpp2/Jj3Dbh7Buk42t9A3JNlyFJyv6Z\n8VYabrjdksaFwW0ebSsajpYLXJ93Vroz1vhtlOMiunQOsxIBByeJvRfRlQA9x/mw\nEZB882rximpX77zlCd+JdZZK+FABOkXczCDwRBWpo+kdZXBaYi3fv2UvUGofK4TV\nU0QurPI0BwKBgBMLKYit78AwdnLiOeQEUN3TUtp1ajf8Lwpt8OPZRFv8nZgOiLQD\ngXaAooW7nnHQTsgfDiyde658PPWnlRSG3Par1/oGYaHFWpAlBoHhT+b87UnkbVDW\ncsRzwWo9hIBWGkUTL8V3+Die++yCh6TC9P/LizDGXxZ/hPu9nDGAJloPAoGATCK/\ncfMv8sbTajdiTAnli3wasRx2rkEPG2YMw2+0ZhIG4bQyYwvfUraEKdCM6tfkpUjb\n9TbXsw8DBWHNg14jxVYxsXqQ6Ir1PxSIddL4xQNrV5HlZpsPEfue3mnyCGRCJvqd\n4fYXIu8ByhqhNhnsmn3+XicLU3fjtVdzwslxz/MCgYAO/bX22N7jvwZY+IY5E98l\n0tHkGB34LtI9fYpmb+8WAYYyMvYu67CrYlvLQ8InU7KfpumwE3ws6MVVc4cDMYOL\nBsJtMexkEfnSdJWn2FHH/w/uHokBs3a9y9T+/dGwT6eST1oEY9Pf7MmkRwv1OJnX\nUWK06aBQ6XJX5HKpaYrucw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "testbot@yhack-smartcar.iam.gserviceaccount.com",
+  "client_id": "108059163023510302784",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/testbot%40yhack-smartcar.iam.gserviceaccount.com"
+}

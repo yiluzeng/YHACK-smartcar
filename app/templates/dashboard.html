@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Hi, {{ current_user.get_name() }}!</h1>
+<p>You're logged in!</p>
+<p><small><a href='{{ url_for("changepass") }}'>Change password</a></small></p>
+<h2>Your rentals:</h2>
+<ul>
+    {% for vehicle in current_user.get_rentals() %}
+    <li>{{ vehicle.get().to_dict()['car_plate_num'] }}</li>
+    {% endfor %}
+</ul>
+<a href='{{ url_for("car_list") }}'>
+  <button class="btn btn-primary">Rent a vehicle</button>
+</a>
+<h2>Your vehicles:</h2>
+<ul>
+    {% for vehicle in current_user.get_cars() %}
+    <li>{{ vehicle.get().to_dict()['car_plate_num'] }}</li>
+    {% endfor %}
+</ul>
+<a href='{{ url_for("car_form") }}'>
+  <button class="btn btn-primary">Register a vehicle</button>
+</a>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} | Grab2Go</title>
+      {% else %}
+      <title>Grab2Go</title>
+      {% endif %}
+    </head>
+    <body>
+        <div>
+            <a href='{{ url_for("index") }}'>
+                <img src='/static/logo.png' style='height:50px; padding-left:10px; padding-right:10px' title='Grab2Go' alt='Grab2Go logo'>
+            </a>
+            <a href='{{ url_for("index") }}'>Home</a>
+            {% if current_user.is_anonymous %}
+            <a href='{{ url_for("login") }}'>Login</a>
+            <a href='{{ url_for("register") }}'>Register</a>
+            {% else %}
+            <a href='{{ url_for("dashboard") }}'>Dashboard</a>
+            <a href='{{ url_for("logout") }}'>Logout</a>
+            <span style='float:right'>
+                <a href='#'>
+                    {% if current_user.has_profile() %}
+                    <img src='{{ current_user.get_profile() }}' style='height:50px; padding-left:10px; padding-right:10px' title='Profile' alt='Profile picture logo'>
+                    {% else %}
+                    <img src='/static/default-profile.jpg' style='height:50px; padding-left:10px; padding-right:10px' title='Profile' alt='Profile picture logo'>
+                    {% endif %}
+                </a>
+            </span>
+            {% endif %}
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+        <hr>
+        <p><small><a href='{{ url_for("privacy") }}'>Privacy policy</a></small></p>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Change password</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.passold.label }}<br>
+            {{ form.passold(size=32) }}
+            {% for error in form.passold.errors %}
+            <span style="color:red">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.passnew.label }}<br>
+            {{ form.passnew(size=32) }}
+            {% for error in form.passnew.errors %}
+            <span style="color:red">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.passconf.label }}<br>
+            {{ form.passconf(size=32) }}
+            {% for error in form.passconf.errors %}
+            <span style="color:red">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

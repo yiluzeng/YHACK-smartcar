@@ -14,8 +14,7 @@
         <h3 class="masthead-brand">Grab to Go</h3>
         <nav class="nav nav-masthead justify-content-center">
           <a class="nav-link active" href="#">Home</a>
-          <a class="nav-link" href="{{ url_for('car_list') }}">Customer</a>
-          <a class="nav-link" href="{{ url_for('car_form') }}">Car Owner</a>
+          <a class="nav-link" href="{{ url_for('car_list') }}">Browse Cars</a>
         </nav>
       </div>
     </header>
@@ -25,8 +24,8 @@
       <p class="lead">Grab to Go is a car sharing application that works with the company Smartcar to provide instant car rental services
       to customers across the US. Share and rent remotely. We dedicate to make your life easier!</p>
       <p class="lead">
-        <a href="{{ url_for('car_list') }}" class="btn btn-lg btn-secondary">For Customer</a>
-        <a href="{{ url_for('car_form') }}" class="btn btn-lg btn-secondary ml-2">For Car Owner</a>
+        <a href="{{ url_for('login') }}" class="btn btn-lg btn-secondary">Sign In</a>
+        <a href="{{ url_for('register') }}" class="btn btn-lg btn-secondary ml-2">Sign Up</a>
       </p>
     </main>
 
