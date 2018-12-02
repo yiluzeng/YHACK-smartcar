@@ -28,6 +28,21 @@
 
 <div id="map"> </div>
 
+<script>
+function initMap() {
+    var coords = {lat: 41.3137799, lng: -72.9331142};
+    var map = new google.maps.Map(
+        document.getElementById('map'), {zoom: 14, center: coords});
+    var marker = new google.maps.Marker({position: coords, map: map});
+}
+      </script>
+      <script async defer
+           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYH-N-3EPSLrOjGB4GoEDCJ6J2AlzzNkw&callback=initMap">
+      </script>
+    </div>
+
+
+
 <div id="lock"> </div>
 
 <div id="divider"> </div>
@@ -49,8 +64,6 @@
 <div id="button3" style="font-family: Saira;">Options</div>
 </center>
 </div>
-
-<div id="zonemap"> <img src="https://www.citymetric.com/sites/default/files/styles/nodeimage/public/article_2016/08/gmaps_head.png?itok=MZsYvZFq" style="height: 100%;"> </div>
 
 <div id="modelheader">TESLA MODEL S (#12345)</div>
 

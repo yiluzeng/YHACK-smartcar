@@ -17,7 +17,7 @@ background: #005F89;
 /* Map */
 
 #map {
-position: fixed;
+position: absolute;
 top: 80px;
 left: 75%;
 width: 200px;
