@@ -1,3 +1,7 @@
 .maincon {
   margin-top: 6rem;
 }
+
+body {
+  font-size: 105%;
+}

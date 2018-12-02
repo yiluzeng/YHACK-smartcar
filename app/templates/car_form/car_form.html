@@ -7,6 +7,9 @@
         height: 400px;
         background-color: grey;
     }
+    .large-btn {
+      font-size: 1.2rem;
+    }
   </style>
   <script async defer
        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYH-N-3EPSLrOjGB4GoEDCJ6J2AlzzNkw&callback=initMap">
@@ -37,10 +40,10 @@
             }
 
             safeCircle = new google.maps.Circle({
-              strokeColor: '#FF0000',
+              strokeColor: '#005500',
               strokeOpacity: 0.8,
               strokeWeight: 2,
-              fillColor: '#FF0000',
+              fillColor: '#00FF00',
               fillOpacity: 0.35,
               map: map,
               center: location,
@@ -82,6 +85,7 @@
       <label for="formOwnerPassword">Password</label>
       <input type="password" class="form-control" id="formOwnerPassword" placeholder="Password">
     </div>
+    <hr />
     <h3>Your Car</h3>
     <div class="form-group">
       <label for="formOwnerLpnumber">License Plate Number</label>
@@ -103,7 +107,7 @@
       <label for="formOwnerPhoto">Car Photo</label>
       <input type="file" class="form-control-file" id="formOwnerPhoto">
     </div>
-
+    <hr />
     <h3>Service Zone</h3>
     <div class="form-group">
       <label for="formOwnerRadius">Service Zone Radius (meters)</label>
@@ -120,6 +124,6 @@
         I agree to Grab to Go's Terms of Use and Privacy Policy
       </label>
     </div>
-    <button type="submit" class="btn btn-primary">Connect Your Car</button>
+    <button type="submit" class="btn btn-primary large-btn">Connect Your Car</button>
   </form>
 {% endblock %}
