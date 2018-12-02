@@ -41,18 +41,22 @@ def car_list():
         data = car.to_dict()
         data['name'] = car.get('car_make').get().get('make')
         data['image'] = car.get('car_make').get().get('image')
-        
+
         posts.append(data)
     return render_template('car_list/car_list.html', posts=posts)
 
 @app.route('/car_form', methods=['GET'])
 def car_form():
-    return render_template('car_form/car_form.html', 
+    return render_template('car_form/car_form.html',
             lat='41.3137799', lng='-72.9331142')
 
 @app.route('/control_panel/client', methods=['GET'])
 def control_panel_client():
     return render_template('control_panel/client-control.html')
+
+@app.route('/control_panel/client2', methods=['GET'])
+def control_panel_client2():
+    return render_template('control_panel/client-control2.html')
 
 @app.route('/control_panel/owner', methods=['GET'])
 def control_panel_owner():
