@@ -8,13 +8,19 @@
  background-color: #DDE8F0;
  padding: 10px;
  margin-bottom: 20px;
+ border-radius: 5px;
 }
 
-.col {
+.car-card-col {
   margin-top: 6px;
   margin-right: 10px;
 }
 
-.row {
+.car-card-row {
   margin-bottom: 20px;
+}
+
+.menu .col {
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
 }

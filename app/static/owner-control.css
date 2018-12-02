@@ -6,40 +6,40 @@ font-family: Arial, sans-serif;
 
 /* menu */
 #menu {
-position: fixed;
-width: 100%;
-margin-top: -22px;
-margin-left: -8px;
-height: 55px;
-background: #005F89;
-}
+  position: fixed;
+  width: 100%;
+  margin-top: -27px;
+  margin-left: -8px;
+  height: 55px;
+  background: #005F89;
+  }
 
 /* Map */
 
 #map {
-position: fixed;
-top: 50px;
-left: 83%;
-width: 173px;
-height: 90%;
-background: #E6ECEB;
-}
+  position: fixed;
+  top: 80px;
+  left: 75%;
+  width: 200px;
+  height: 85%;
+  background: #E6ECEB;
+  }
 
 
 /* Lock Unlock */
 
 #lock {
-position: relative;
-width: 306px;
-height: 42px;
-top: 200px;
-left: 345px;
-background: #0093B7;
-border: 1px solid #005F89;
-box-sizing: border-box;
-box-shadow: 2px 4px 5px #D5EDF5;
-border-radius: 4px;
-}
+  position: relative;
+  width: 306px;
+  height: 42px;
+  top: 170px;
+  left: 345px;
+  background: #0093B7;
+  border: 1px solid #005F89;
+  box-sizing: border-box;
+  box-shadow: 2px 4px 5px #D5EDF5;
+  border-radius: 4px;
+  }
 
 
 /* Divider */
@@ -87,17 +87,17 @@ box-shadow: 2px 3px 4px rgba(0, 95, 137, 0.07);
 }
 
 #zonemap {
-position: fixed;
-width: 154px;
-height: 85%;
-top: 60px;
-left: 83.9%;
-background: #000;
-border: 5px solid rgba(160, 197, 207, 0.5);
-box-sizing: border-box;
-object-fit: cover;
-overflow: hidden;
-}
+  position: fixed;
+  width: 174px;
+  height: 85%;
+  top: 90px;
+  left: 76%;
+  background: #000;
+  border: 5px solid rgba(160, 197, 207, 0.5);
+  box-sizing: border-box;
+  object-fit: cover;
+  overflow: hidden;
+  }
 
 #modelheader {
 position: absolute;
@@ -131,28 +131,28 @@ color: #E6ECEB;
 }
 
 #lockcar {
-position: absolute;
-width: 274px;
-height: 42px;
-top: 210px;
-left: 435px;
-font-family: Saira;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-font-size: 24px;
-letter-spacing: 0.05em;
-color: #000000;
-}
+  position: absolute;
+  width: 274px;
+  height: 42px;
+  top: 200px;
+  left: 435px;
+  font-family: Saira;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  font-size: 24px;
+  letter-spacing: 0.05em;
+  color: #000000;
+  }
 
 #lockpic img {
-position: absolute;
-top: 214px;
-left: 560px;
-width: 27px;
-height: 27px;
-object-fit: cover;
-}
+  position: absolute;
+  top: 204px;
+  left: 560px;
+  width: 27px;
+  height: 27px;
+  object-fit: cover;
+  }
 
 #button1 {
 position: absolute;
