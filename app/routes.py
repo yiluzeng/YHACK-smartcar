@@ -55,7 +55,7 @@ def control_panel_client():
 
 @app.route('/control_panel/client2', methods=['GET'])
 def control_panel_client2():
-    return render_template('control_panel/client-control2.html')
+    return render_template('control_panel/client-control2.html', contactee='OWNER')
 
 @app.route('/control_panel/owner', methods=['GET'])
 def control_panel_owner():
@@ -63,8 +63,7 @@ def control_panel_owner():
 
 @app.route('/control_panel/owner2', methods=['GET'])
 def control_panel_owner2():
-    return render_template('control_panel/owner-control2.html')
-
+    return render_template('control_panel/client-control2.html', contactee='CLIENT')
 
 @app.route('/message', methods=['GET'])
 def message():
