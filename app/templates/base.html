@@ -63,16 +63,29 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{{ url_for('car_list') }}">Rent a Car</a>
                 </li>
+                {% if not current_user.is_anonymous %}
                 <li class="nav-item">
                   <a class="nav-link" href="{{ url_for('control_panel_client2') }}">Control Panel</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{ url_for('message') }}">Message</a>
                 </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href='{{ url_for("dashboard") }}'>Dashboard</a>
+                </li>
+                {% endif %}
+
               </ul>
-              <span class="navbar-text">
-                Welcome, Desmond
-              </span>
+              {% if current_user.is_anonymous %}
+                <a href="{{ url_for('login') }}">
+                  <button class="btn btn-secondary">Login</button>
+                </a>
+              {% else %}
+                <a href='{{ url_for("logout") }}'>
+                  <button class="btn btn-secondary">Logout</button>
+                </a>
+              {% endif %}
             </div>
           </nav>
         </header>

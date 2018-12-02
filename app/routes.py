@@ -8,15 +8,7 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 import sys
 
-cred = credentials.Certificate("yhack-smartcar-firebase-adminsdk-6aysw-1bf4fe0230.json")
-
-
-firebase_admin.initialize_app(cred, {
-'databaseURL': 'https://yhack-smartcar.firebaseio.com'
-})
-
-
-db = firestore.client()
+from app.firedata import db
 
 cars_ref = db.collection(u'cars')
 
@@ -115,7 +107,7 @@ def make_request():
 @app.route('/delete_request')
 def delete_request():
     data_ref = db.collection(u'requests').document(u'new').delete()
-    
+
     return redirect(url_for('message'))
 
 CLIENT_ID = 'cdf41817-f479-42c9-8f48-6fa2c0ff058d'

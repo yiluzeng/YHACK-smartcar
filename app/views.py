@@ -6,11 +6,6 @@ from app.forms import LoginForm, RegForm, ChangePassForm
 from app.models import User
 from app.firedata import db
 
-@app.route('/')
-@app.route('/index')
-def index():
-    return render_template('index.html')
-
 @app.route('/privacy')
 def privacy():
     return render_template('privacy.html', title='Privacy Policy')
