@@ -47,7 +47,8 @@ def car_list():
 
 @app.route('/car_form', methods=['GET'])
 def car_form():
-    return render_template('car_form/car_form.html')
+    return render_template('car_form/car_form.html', 
+            lat='41.3137799', lng='-72.9331142')
 
 @app.route('/control_panel/client', methods=['GET'])
 def control_panel_client():
